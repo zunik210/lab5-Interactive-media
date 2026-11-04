@@ -203,3 +203,36 @@ videoOverlay.addEventListener("click", function(event) {
     closeVideo();
   }
 });
+
+// video manipulation (event listeners)
+
+placeVideo.addEventListener("play", playerStarted);
+placeVideo.addEventListener("timeupdate", playerProgressed);
+placeVideo.addEventListener("pause", playerPaused);
+placeVideo.addEventListener("ended", playerEnded);
+
+function playerStarted() {
+  videoMessage.innerHTML = "The video is playing.";
+}
+
+function playerProgressed() {
+  let minutes = Math.floor(placeVideo.currentTime / 60);
+  let seconds = Math.floor(placeVideo.currentTime) - minutes * 60;
+
+  // Add a zero before single-digit seconds
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  videoMessage.innerHTML =
+    "The video is playing at " + minutes + ":" + seconds;
+}
+
+function playerPaused() {
+  if (!placeVideo.ended) {
+    videoMessage.innerHTML = "The video is paused.";
+  }
+}
+
+function playerEnded() {
+  videoMessage.innerHTML = "You've reached the end of this journey.";
+}
