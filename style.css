@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F5F0E7;
+  color: #242424;
+  font-family: Arial, sans-serif;
+}
+
+/* landing page (hero section) */
+
+.hero {
+  height: 90vh;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)),
+    url("images/karachi-hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+  padding: 30px;
+}
+
+.hero-content {
+  max-width: 750px;
+}
+
+.eyebrow {
+  color: #B87555;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.hero .eyebrow {
+  color: #F5D9BD;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: 65px;
+  font-weight: normal;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.tagline {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.main-button {
+  display: inline-block;
+  background-color: #F5F0E7;
+  color: #242424;
+  padding: 15px 28px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.main-button:hover {
+  background-color: #B87555;
+  color: white;
+}
