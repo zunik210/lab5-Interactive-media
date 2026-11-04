@@ -1,4 +1,5 @@
 let musicMessage = document.getElementById("musicMessage");
+let player = document.getElementById("backgroundMusic");
 
 let playBtn = document.getElementById("playBtn");
 let pauseBtn = document.getElementById("pauseBtn");
@@ -58,7 +59,7 @@ function updateMusicMessage() {
     "Background music volume: " + Math.round(player.volume * 100) + "%";
 }
 
-/* location sounds */
+// location sounds
 
 let oceanSound = document.getElementById("oceanSound");
 let trafficSound = document.getElementById("trafficSound");
@@ -67,20 +68,29 @@ let marketSound = document.getElementById("marketSound");
 let oceanBtn = document.getElementById("oceanBtn");
 let trafficBtn = document.getElementById("trafficBtn");
 let marketBtn = document.getElementById("marketBtn");
+let stopSoundBtn = document.getElementById("stopSoundBtn");
 
 let soundMessage = document.getElementById("soundMessage");
 
 oceanBtn.addEventListener("click", playOcean);
 trafficBtn.addEventListener("click", playTraffic);
 marketBtn.addEventListener("click", playMarket);
+stopSoundBtn.addEventListener("click", stopAllSounds);
 
 function stopLocationSounds() {
   oceanSound.pause();
   oceanSound.currentTime = 0;
+
   trafficSound.pause();
   trafficSound.currentTime = 0;
+
   marketSound.pause();
   marketSound.currentTime = 0;
+}
+
+function stopAllSounds() {
+  stopLocationSounds();
+  soundMessage.innerHTML = "All location sounds have stopped.";
 }
 
 function playOcean() {
@@ -101,31 +111,24 @@ function playMarket() {
   soundMessage.innerHTML = "Now listening: Karachi market ambience.";
 }
 
-/* interaction location img and vids */
+
+/* interaction with location images and videos */
 
 let coastBtn = document.getElementById("coastBtn");
 let streetsBtn = document.getElementById("streetsBtn");
 let marketsBtn = document.getElementById("marketsBtn");
 
 let videoOverlay = document.getElementById("videoOverlay");
-
 let expandedImage = document.getElementById("expandedImage");
-
 let videoTitle = document.getElementById("videoTitle");
-
 let videoDescription = document.getElementById("videoDescription");
-
 let placeVideo = document.getElementById("placeVideo");
-
 let videoMessage = document.getElementById("videoMessage");
-
 let closeBtn = document.getElementById("closeBtn");
 
-// to remember whether the music was playing
 let musicWasPlaying = false;
 
-
-// connected the location buttons
+// connect the location buttons
 
 coastBtn.addEventListener("click", openCoast);
 streetsBtn.addEventListener("click", openStreets);
@@ -136,7 +139,8 @@ function openCoast() {
     "The Coast",
     "Discover the immersive sound of the Arabian Sea.",
     "images/coast.jpg",
-    "videos/coast.mp4"
+    "videos/coast.mp4",
+    oceanSound
   );
 }
 
@@ -145,66 +149,77 @@ function openStreets() {
     "The Streets",
     "Experience the movement and energy of Karachi.",
     "images/streets.jpg",
-    "videos/streets.mp4"
+    "videos/streets.mp4",
+    trafficSound
   );
 }
-
 
 function openMarkets() {
   openLocation(
     "The Markets",
     "Discover the colours and sounds of local markets.",
     "images/markets.jpg",
-    "videos/markets.mp4"
+    "videos/markets.mp4",
+    marketSound
   );
 }
 
-// opens up the selected location
-function openLocation(title, description, image, video) {
+// open the selected location and play its matching sound
+
+function openLocation(title, description, image, video, locationSound) {
   videoTitle.innerHTML = title;
   videoDescription.innerHTML = description;
   expandedImage.src = image;
+
   placeVideo.src = video;
   placeVideo.load();
+
   videoMessage.innerHTML = "The video is ready.";
 
-  // remembers whether background music was playing
   musicWasPlaying = !player.paused;
 
-  // pause background music
   player.pause();
 
-  // stop individual location sounds
   stopLocationSounds();
 
-  // display the expanded image and video
   videoOverlay.style.display = "flex";
 
+  // play the matching location sound
+
+  locationSound.currentTime = 0;
+  locationSound.play();
+
+  soundMessage.innerHTML = "Now listening: " + title + ".";
 }
 
 // close the video popup
 
 closeBtn.addEventListener("click", closeVideo);
+
 function closeVideo() {
   placeVideo.pause();
   placeVideo.removeAttribute("src");
   placeVideo.load();
+
+  stopLocationSounds();
+
   videoOverlay.style.display = "none";
 
-  // to resume music only if it was playing before
   if (musicWasPlaying) {
     player.play();
   }
 }
 
-// to close the popup when clicking outside the video window
+// close popup when clicking outside the video window
+
 videoOverlay.addEventListener("click", function(event) {
   if (event.target === videoOverlay) {
     closeVideo();
   }
 });
 
-// video manipulation (event listeners)
+
+/* video manipulation */
 
 placeVideo.addEventListener("play", playerStarted);
 placeVideo.addEventListener("timeupdate", playerProgressed);
@@ -219,10 +234,10 @@ function playerProgressed() {
   let minutes = Math.floor(placeVideo.currentTime / 60);
   let seconds = Math.floor(placeVideo.currentTime) - minutes * 60;
 
-  // Add a zero before single-digit seconds
   if (seconds < 10) {
     seconds = "0" + seconds;
   }
+
   videoMessage.innerHTML =
     "The video is playing at " + minutes + ":" + seconds;
 }
