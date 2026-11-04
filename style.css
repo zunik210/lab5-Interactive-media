@@ -77,3 +77,186 @@ body {
   background-color: #B87555;
   color: white;
 }
+
+/* bg sound section*/
+
+.music-section {
+  text-align: center;
+  padding: 45px 20px;
+  background-color: #FFFEFA;
+}
+
+.music-section h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+
+.music-section p {
+  color: #68645E;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.music-section audio {
+  width: 350px;
+  max-width: 100%;
+}
+
+.music-buttons {
+  margin-top: 20px;
+}
+
+button {
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+}
+
+.music-buttons button {
+  background-color: transparent;
+  border: 1px solid #B87555;
+  padding: 10px 15px;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.music-buttons button:hover {
+  background-color: #B87555;
+  color: white;
+}
+
+#musicMessage {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+/* the intro */
+
+.intro {
+  max-width: 650px;
+  margin: 100px auto 60px;
+  padding: 0 25px;
+  text-align: center;
+}
+
+.intro h2 {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: normal;
+  margin-bottom: 18px;
+}
+
+.intro p:last-child {
+  color: #68645E;
+  line-height: 1.8;
+}
+
+/* location image cards */
+
+.places {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding: 20px 6%;
+}
+
+.place-card {
+  background-color: #FFFEFA;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.place-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.place-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.place-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-info {
+  padding: 24px;
+}
+
+.category {
+  color: #B87555;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.card-info h3 {
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: normal;
+  margin: 12px 0;
+}
+
+.card-info p {
+  color: #68645E;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card-info button {
+  background-color: transparent;
+  border: 1px solid #B87555;
+  padding: 11px 20px;
+  margin-top: 18px;
+  transition: 0.3s;
+}
+
+.card-info button:hover {
+  background-color: #B87555;
+  color: white;
+}
+
+/* location sound section */
+
+.sound-section {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.sound-section h2 {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: normal;
+  margin-bottom: 18px;
+}
+
+.sound-section p {
+  color: #68645E;
+  line-height: 1.7;
+}
+
+.sound-buttons {
+  margin-top: 30px;
+}
+
+.sound-buttons button {
+  background-color: transparent;
+  border: 1px solid #B87555;
+  padding: 14px 22px;
+  margin: 6px;
+  transition: 0.3s;
+}
+
+.sound-buttons button:hover {
+  background-color: #B87555;
+  color: white;
+}
+
+#soundMessage {
+  margin-top: 20px;
+  font-size: 13px;
+}
