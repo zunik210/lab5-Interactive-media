@@ -1,26 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karachi - The City That Never Sleeps</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-
 <body>
-
-
- <header class="hero" id="home">
+<div class="hero" id="home">
     <div class="hero-content">
       <p class="eyebrow">A SOUND AND VISUAL JOURNEY</p>
       <h1>Karachi — The City That Never Sleeps</h1>
       <p class="tagline">
-        Where the ocean meets the streets, and every corner has a story.
-      </p>
-      <a href="#explore" class="main-button">Enter the City</a>
+        Where the ocean meets the streets, and every corner has a story.</p>
+      <a href="#explore" class="main-button">
+        Enter the City of Karachi
+      </a>
+    </div>
+</div>
+
+<!-- bg music -->
+
+<div class="music-section">
+    <h2>Listen to Karachi</h2>
+    <p>Begin the journey with the sounds of a city that never sleeps.</p>
+    <audio controls loop id="backgroundMusic">
+      <source src="audio/background-music.mp3" type="audio/mpeg" />
+      This browser does not support audio.
+    </audio>
+    <div class="music-buttons">
+      <button id="playBtn">Play</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="stopBtn">Stop</button>
+      <button id="volumeUpBtn">Volume Up</button>
+      <button id="volumeDownBtn">Volume Down</button>
+
+    </div>
+    <p id="musicMessage">Background music is ready.</p>
+</div>
+
+<!-- intro to the locations -->
+
+<div class="intro" id="explore">
+    <p class="eyebrow">DISCOVER KARACHI</p>
+    <h2>A city of many rhythms.</h2>
+    <p>From the rhythm of ocean waves to busy streets and colourful markets, explore the different sounds and scenes that make Karachi unique.</p>
+</div>
+
+ <!-- three interactive image cards -->
+
+<div class="places">
+    <!-- coast -->
+    <div class="place-card" id="coastCard">
+      <img src="images/coast.jpg" alt="Karachi coastline" />
+      <div class="card-info">
+        <p class="category">01 / NATURE</p>
+        <h3>Explore the Coast</h3>
+        <p>Discover the calm rhythm of the Arabian Sea.</p>
+        <button id="coastBtn">Explore</button>
+      </div>
+
     </div>
 
-</body>
+    <!-- streets -->
 
+    <div class="place-card" id="streetsCard">
+      <img src="images/streets.jpg" alt="Busy Karachi streets" />
+      <div class="card-info">
+        <p class="category">02 / CITY LIFE</p>
+        <h3>Explore the Streets</h3>
+        <p>Experience the movement and energy of Karachi.</p>
+        <button id="streetsBtn">Explore</button>
+      </div>
+
+    </div>
+
+
+    <!-- markets -->
+
+    <div class="place-card" id="marketsCard">
+      <img src="images/markets.jpg" alt="Traditional Karachi market" />
+      <div class="card-info">
+        <p class="category">03 / CULTURE</p>
+        <h3>Explore the Markets</h3>
+        <p>Discover the colours and sounds of local markets.</p>
+        <button id="marketsBtn">Explore</button>
+      </div>
+
+    </div>
+
+</div>
+
+<!-- interactive location sounds -->
+
+<div class="sound-section">
+
+    <p class="eyebrow">LISTEN TO THE CITY</p>
+    <h2>Every place has a sound.</h2>
+    <p>Select a location to experience its individual atmosphere.</p>
+
+    <div class="sound-buttons">
+      <button id="oceanBtn">Ocean Waves</button>
+      <button id="trafficBtn">City Traffic</button>
+      <button id="marketBtn">Market Ambience</button>
+    </div>
+
+    <p id="soundMessage">Choose a sound to begin.</p>
+
+    <audio id="oceanSound">
+      <source src="audio/ocean-waves.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="trafficSound">
+      <source src="audio/traffic.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="marketSound">
+      <source src="audio/market.mp3" type="audio/mpeg" />
+    </audio>
+
+</div>
+
+
+<!-- video overlay -->
+
+<div class="video-overlay" id="videoOverlay">
+    <div class="video-window">
+      <button id="closeBtn" class="close-button">X</button>
+      <img id="expandedImage" src="" alt="Karachi location" />
+      <div class="video-content">
+        <p class="eyebrow">EXPLORE KARACHI</p>
+        <h2 id="videoTitle">Karachi</h2>
+        <p id="videoDescription"></p>
+
+        <video id="placeVideo" controls> Your browser does not support video.</video>
+        <p id="videoMessage">The video is ready.</p>
+
+      </div>
+    </div>
+
+</div>
+
+<!-- footer -->
+
+  <div class="footer">
+    <p>Made by Zunairah Khan · Karachi, Pakistan</p>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
 </html>
